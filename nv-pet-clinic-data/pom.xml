@@ -12,7 +12,6 @@
 	<name>nv-pet-clinic-data</name>
 	<description>nv-pet-clinic-data</description>
 
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
