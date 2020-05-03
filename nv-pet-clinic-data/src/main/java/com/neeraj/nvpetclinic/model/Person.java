@@ -7,7 +7,7 @@ package com.neeraj.nvpetclinic.model;
  * @author Neeraj
  *
  */
-public class Person {
+public class Person extends BaseEntity{
 
 	private String firstName;
 	private String lastName;
