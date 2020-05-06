@@ -6,13 +6,13 @@ package com.neeraj.nvpetclinic.services.map;
 import java.util.Set;
 
 import com.neeraj.nvpetclinic.model.Pet;
-import com.neeraj.nvpetclinic.services.CrudService;
+import com.neeraj.nvpetclinic.services.PetSerivce;
 
 /**
  * @author Neeraj
  *
  */
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetSerivce {
 
 	@Override
 	public Pet save(Pet object) {
