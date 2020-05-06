@@ -10,8 +10,6 @@ import com.neeraj.nvpetclinic.model.Owner;
 import com.neeraj.nvpetclinic.model.Vet;
 import com.neeraj.nvpetclinic.services.OwnerService;
 import com.neeraj.nvpetclinic.services.VetService;
-import com.neeraj.nvpetclinic.services.map.OwnerServiceMap;
-import com.neeraj.nvpetclinic.services.map.VetServiceMap;
 
 /**
  * @author Neeraj
