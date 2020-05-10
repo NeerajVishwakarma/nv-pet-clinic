@@ -3,10 +3,13 @@
  */
 package com.neeraj.nvpetclinic.bootstrap;
 
+import java.time.LocalDate;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.neeraj.nvpetclinic.model.Owner;
+import com.neeraj.nvpetclinic.model.Pet;
 import com.neeraj.nvpetclinic.model.PetType;
 import com.neeraj.nvpetclinic.model.Vet;
 import com.neeraj.nvpetclinic.services.OwnerService;
@@ -44,7 +47,16 @@ public class DataLoader implements CommandLineRunner{
 		Owner o1 = new Owner();
 		o1.setFirstName("Naveen");
 		o1.setLastName("Bansal");
+		o1.setAddress("123 Baker Street");
+		o1.setCity("Miami");
+		o1.setTelephone("1212121");
 		
+		Pet naveensPet = new Pet();
+		naveensPet.setPetType(saveDogType);
+		naveensPet.setOwner(o1);
+		naveensPet.setBirthDate(LocalDate.now());
+		naveensPet.setName("Monty");
+		o1.getPets().add(naveensPet);
 		ownerService.save(o1);
 		
 		System.out.println("=======Loaded Owner=====");
@@ -53,6 +65,16 @@ public class DataLoader implements CommandLineRunner{
 		Owner o2 = new Owner();
 		o2.setFirstName("Jitu");
 		o2.setLastName("Kumar");
+		o2.setAddress("123 Baker Street");
+		o2.setCity("Miami");
+		o2.setTelephone("121212134");
+		
+		Pet jituCat = new Pet();
+		jituCat.setName("Just Cat");
+		jituCat.setOwner(o2);
+		jituCat.setBirthDate(LocalDate.now());
+		jituCat.setPetType(saveCatType);
+		o2.getPets().add(jituCat);
 		
 		ownerService.save(o2);
 		
