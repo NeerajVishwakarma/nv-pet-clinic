@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 
 import com.neeraj.nvpetclinic.model.PetType;
 import com.neeraj.nvpetclinic.model.Speciality;
-import com.neeraj.nvpetclinic.services.SpecialtiesService;
+import com.neeraj.nvpetclinic.services.SpecialtyService;
 
 /**
  * @author Neeraj
  *
  */
 @Service
-public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtiesService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long> implements SpecialtyService {
 
 	@Override
 	public Speciality save(Speciality object) {

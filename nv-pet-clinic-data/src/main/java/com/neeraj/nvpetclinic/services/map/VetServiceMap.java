@@ -7,7 +7,9 @@ import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import com.neeraj.nvpetclinic.model.Speciality;
 import com.neeraj.nvpetclinic.model.Vet;
+import com.neeraj.nvpetclinic.services.SpecialtyService;
 import com.neeraj.nvpetclinic.services.VetService;
 
 /**
@@ -17,24 +19,44 @@ import com.neeraj.nvpetclinic.services.VetService;
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
-	@Override
+	private final SpecialtyService specialtyService;
+
+	/**
+	 * @param specialtyService
+	 */
+	public VetServiceMap(SpecialtyService specialtyService) {
+		this.specialtyService = specialtyService;
+	}
+
+@Override
 	public Vet save(Vet object) {
+		
+		if(object.getSpecialities().size()>0) {
+			object.getSpecialities().forEach(specialty ->{
+				if(specialty.getId()==null) {
+					Speciality savedSpecialty = specialtyService.save(specialty);
+					specialty.setId(savedSpecialty.getId());
+				}
+			});
+		}
+		
 		return super.save(object);
 	}
-	
+
 	@Override
-	public Set<Vet> findAll(){
+	public Set<Vet> findAll() {
 		return super.findAll();
 	}
-	
+
 	@Override
 	public Vet findById(Long id) {
 		return super.findById(id);
 	}
-	
+
 	@Override
 	public void deleteById(Long id) {
-		super.deleteById(id);;
+		super.deleteById(id);
+		;
 	}
 
 	@Override
