@@ -28,7 +28,7 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 		this.specialtyService = specialtyService;
 	}
 
-@Override
+ @Override
 	public Vet save(Vet object) {
 		
 		if(object.getSpecialities().size()>0) {
@@ -56,7 +56,6 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 	@Override
 	public void deleteById(Long id) {
 		super.deleteById(id);
-		;
 	}
 
 	@Override
