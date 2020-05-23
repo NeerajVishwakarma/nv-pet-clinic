@@ -13,10 +13,12 @@ import com.neeraj.nvpetclinic.model.Pet;
 import com.neeraj.nvpetclinic.model.PetType;
 import com.neeraj.nvpetclinic.model.Speciality;
 import com.neeraj.nvpetclinic.model.Vet;
+import com.neeraj.nvpetclinic.model.Visit;
 import com.neeraj.nvpetclinic.services.OwnerService;
 import com.neeraj.nvpetclinic.services.PetTypeService;
 import com.neeraj.nvpetclinic.services.SpecialtyService;
 import com.neeraj.nvpetclinic.services.VetService;
+import com.neeraj.nvpetclinic.services.VisitService;
 
 /**
  * @author Neeraj
@@ -29,7 +31,8 @@ public class DataLoader implements CommandLineRunner {
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialtyService specialtiesService;
-
+	private final VisitService visitService;
+	
 	/**
 	 * @param ownerService
 	 * @param vetService
@@ -37,7 +40,8 @@ public class DataLoader implements CommandLineRunner {
 	 * @param specialtiesService
 	 */
 	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-			SpecialtyService specialtiesService) {
+			SpecialtyService specialtiesService, VisitService visitService) {
+		this.visitService = visitService;
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
@@ -108,7 +112,14 @@ public class DataLoader implements CommandLineRunner {
 		o2.getPets().add(jituCat);
 
 		ownerService.save(o2);
-
+		
+		Visit catVisit = new Visit();
+		catVisit.setPet(jituCat);
+		catVisit.setDescription("Sneezy Kitty");
+		catVisit.setDate(LocalDate.now());
+		
+		visitService.save(catVisit);
+		
 		System.out.println("=======Loaded Owner=====");
 
 		Vet v1 = new Vet();

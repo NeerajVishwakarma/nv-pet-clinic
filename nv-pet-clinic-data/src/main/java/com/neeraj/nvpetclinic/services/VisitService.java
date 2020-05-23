@@ -3,6 +3,8 @@
  */
 package com.neeraj.nvpetclinic.services;
 
+import org.springframework.stereotype.Service;
+
 import com.neeraj.nvpetclinic.model.Visit;
 
 /**
