@@ -17,14 +17,14 @@ import com.neeraj.nvpetclinic.services.VetService;
  *
  */
 @Service
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
 	private final SpecialtyService specialtyService;
 
 	/**
 	 * @param specialtyService
 	 */
-	public VetServiceMap(SpecialtyService specialtyService) {
+	public VetMapService(SpecialtyService specialtyService) {
 		this.specialtyService = specialtyService;
 	}
 

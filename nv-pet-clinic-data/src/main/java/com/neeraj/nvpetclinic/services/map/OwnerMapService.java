@@ -18,7 +18,7 @@ import com.neeraj.nvpetclinic.services.PetTypeService;
  *
  */
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService {
+public class OwnerMapService extends AbstractMapService<Owner,Long> implements OwnerService {
 
 	private final PetTypeService petTypeService;
 	private final PetSerivce petService;
@@ -27,7 +27,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements O
 	 * @param petTypeService
 	 * @param petService
 	 */
-	public OwnerServiceMap(PetTypeService petTypeService, PetSerivce petService) {
+	public OwnerMapService(PetTypeService petTypeService, PetSerivce petService) {
 		this.petTypeService = petTypeService;
 		this.petService = petService;
 	}

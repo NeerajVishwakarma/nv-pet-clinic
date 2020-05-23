@@ -15,7 +15,7 @@ import com.neeraj.nvpetclinic.services.PetSerivce;
  *
  */
 @Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetSerivce {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetSerivce {
 
 	@Override
 	public Pet save(Pet object) {
