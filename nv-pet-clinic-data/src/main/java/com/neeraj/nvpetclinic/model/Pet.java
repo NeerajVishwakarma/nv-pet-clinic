@@ -4,11 +4,15 @@
 package com.neeraj.nvpetclinic.model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -33,6 +37,21 @@ public class Pet extends BaseEntity{
 	@Column(name = "birth_date")
 	private LocalDate birthdate;
 	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "pet")
+	private Set<Visit> visits=new HashSet<Visit>();
+	
+	public LocalDate getBirthdate() {
+		return birthdate;
+	}
+	public void setBirthdate(LocalDate birthdate) {
+		this.birthdate = birthdate;
+	}
+	public Set<Visit> getVisits() {
+		return visits;
+	}
+	public void setVisits(Set<Visit> visits) {
+		this.visits = visits;
+	}
 	public String getName() {
 		return name;
 	}
