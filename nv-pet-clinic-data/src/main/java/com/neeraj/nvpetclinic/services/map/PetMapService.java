@@ -5,6 +5,7 @@ package com.neeraj.nvpetclinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.neeraj.nvpetclinic.model.Pet;
@@ -15,6 +16,7 @@ import com.neeraj.nvpetclinic.services.PetSerivce;
  *
  */
 @Service
+@Profile({"default", "map"})
 public class PetMapService extends AbstractMapService<Pet, Long> implements PetSerivce {
 
 	@Override
